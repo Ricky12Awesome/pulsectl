@@ -64,6 +64,7 @@ fn volume_from_percent(volume: f64) -> f64 {
     (volume * 100.0) * (f64::from(pulse::volume::Volume::NORMAL.0) / 100.0)
 }
 
+#[derive(Debug)]
 pub struct SinkController {
     pub handler: Handler,
 }
@@ -344,6 +345,7 @@ impl AppControl<ApplicationInfo> for SinkController {
     }
 }
 
+#[derive(Debug)]
 pub struct SourceController {
     pub handler: Handler,
 }

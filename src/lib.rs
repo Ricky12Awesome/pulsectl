@@ -35,6 +35,7 @@
 extern crate libpulse_binding as pulse;
 
 use std::cell::RefCell;
+use std::fmt::{Debug, Formatter};
 use std::ops::Deref;
 use std::rc::Rc;
 
@@ -155,6 +156,16 @@ impl Handler {
             }
         }
         Ok(())
+    }
+}
+
+impl Debug for Handler {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Handler")
+          .field("mainloop", &Option::<()>::None)
+          .field("context", &Option::<()>::None)
+          .field("introspect", &Option::<()>::None)
+          .finish()
     }
 }
 
